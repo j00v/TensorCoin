@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26pt" height="26pt" viewBox="0 0 26 26" version="1.1">
+<defs>
+<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
+  <feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+</filter>
+<mask id="mask0">
+  <g filter="url(#alpha)">
+<rect x="0" y="0" width="26" height="26" style="fill:rgb(0%,0%,0%);fill-opacity:0.501961;stroke:none;"/>
+  </g>
+</mask>
+<clipPath id="clip1">
+  <rect x="0" y="0" width="26" height="26"/>
+</clipPath>
+<g id="surface266" clip-path="url(#clip1)">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 19.675781 12.738281 L 18.324219 11.261719 L 14 15.226562 L 14 3 L 12 3 L 12 15.226562 L 7.675781 11.261719 L 6.324219 12.738281 L 13 18.855469 Z M 19.675781 12.738281 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 21 17 L 21 21 L 5 21 L 5 17 L 3 17 L 3 23 L 23 23 L 23 17 Z M 21 17 "/>
+</g>
+</defs>
+<g id="surface262">
+<use xlink:href="#surface266" mask="url(#mask0)"/>
+</g>
+</svg>

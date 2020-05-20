@@ -1,0 +1,4 @@
+qt/qt_libbitcoinqt_a-qrc_tensorcoin.o: qt/qrc_tensorcoin.cpp \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:
