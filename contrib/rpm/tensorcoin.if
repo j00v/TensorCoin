@@ -1,0 +1,157 @@
+
+## <summary>policy for tensorcoin</summary>
+
+
+########################################
+## <summary>
+##	Transition to tensorcoin.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`tensorcoin_domtrans',`
+	gen_require(`
+		type tensorcoin_t, tensorcoin_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, tensorcoin_exec_t, tensorcoin_t)
+')
+
+
+########################################
+## <summary>
+##	Execute tensorcoin server in the tensorcoin domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tensorcoin_initrc_domtrans',`
+	gen_require(`
+		type tensorcoin_initrc_exec_t;
+	')
+
+	init_labeled_script_domtrans($1, tensorcoin_initrc_exec_t)
+')
+
+
+########################################
+## <summary>
+##	Search tensorcoin lib directories.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tensorcoin_search_lib',`
+	gen_require(`
+		type tensorcoin_var_lib_t;
+	')
+
+	allow $1 tensorcoin_var_lib_t:dir search_dir_perms;
+	files_search_var_lib($1)
+')
+
+########################################
+## <summary>
+##	Read tensorcoin lib files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tensorcoin_read_lib_files',`
+	gen_require(`
+		type tensorcoin_var_lib_t;
+	')
+
+	files_search_var_lib($1)
+	read_files_pattern($1, tensorcoin_var_lib_t, tensorcoin_var_lib_t)
+')
+
+########################################
+## <summary>
+##	Manage tensorcoin lib files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tensorcoin_manage_lib_files',`
+	gen_require(`
+		type tensorcoin_var_lib_t;
+	')
+
+	files_search_var_lib($1)
+	manage_files_pattern($1, tensorcoin_var_lib_t, tensorcoin_var_lib_t)
+')
+
+########################################
+## <summary>
+##	Manage tensorcoin lib directories.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tensorcoin_manage_lib_dirs',`
+	gen_require(`
+		type tensorcoin_var_lib_t;
+	')
+
+	files_search_var_lib($1)
+	manage_dirs_pattern($1, tensorcoin_var_lib_t, tensorcoin_var_lib_t)
+')
+
+
+########################################
+## <summary>
+##	All of the rules required to administrate
+##	a tensorcoin environment
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+## <param name="role">
+##	<summary>
+##	Role allowed access.
+##	</summary>
+## </param>
+## <rolecap/>
+#
+interface(`tensorcoin_admin',`
+	gen_require(`
+		type tensorcoin_t;
+		type tensorcoin_initrc_exec_t;
+		type tensorcoin_var_lib_t;
+	')
+
+	allow $1 tensorcoin_t:process { ptrace signal_perms };
+	ps_process_pattern($1, tensorcoin_t)
+
+	tensorcoin_initrc_domtrans($1)
+	domain_system_change_exemption($1)
+	role_transition $2 tensorcoin_initrc_exec_t system_r;
+	allow $2 system_r;
+
+	files_search_var_lib($1)
+	admin_pattern($1, tensorcoin_var_lib_t)
+
+')
+

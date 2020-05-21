@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=TensorCoin
+Comment=TensorCoin P2P Cryptocurrency
+Comment[fr]=TensorCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=TensorCoin, eşten eşe kriptografik sanal para birimi
+Exec=tensorcoin-qt %u
+Terminal=false
+Type=Application
+Icon=tensorcoin128
+MimeType=x-scheme-handler/tensorcoin;
+Categories=Office;Finance;
+StartupWMClass=TensorCoin-qt

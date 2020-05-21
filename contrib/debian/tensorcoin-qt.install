@@ -1,0 +1,6 @@
+usr/local/bin/tensorcoin-qt usr/bin
+share/pixmaps/tensorcoin32.xpm usr/share/pixmaps
+share/pixmaps/tensorcoin16.xpm usr/share/pixmaps
+share/pixmaps/tensorcoin128.png usr/share/pixmaps
+debian/tensorcoin-qt.desktop usr/share/applications
+debian/tensorcoin-qt.protocol usr/share/kde4/services/
