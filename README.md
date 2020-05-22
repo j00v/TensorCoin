@@ -11,7 +11,7 @@ Tensor Coin
 <table>
 <tr><td>Coin Name</td><td>Tensor Coin</td></tr>
 <tr><td>Ticker</td><td>TNSR</td></tr>
-<tr><td>Algo</td><td>Quark</td></tr>
+<tr><td>Algo</td><td>SHA256</td></tr>
 <tr><td>Coin Type</td><td>MN POW POS</td></tr>
 <tr><td>Block Time</td><td>60 Sec</td></tr>
 <tr><td>Maximum Supply</td><td>7066656 TNSR</td></tr>
