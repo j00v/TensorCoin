@@ -1451,6 +1451,12 @@ fi
 ac_configure_args="${ac_configure_args} --disable-shared --with-pic --with-bignum=no --enable-module-recovery --disable-jni"
 AC_CONFIG_SUBDIRS([src/secp256k1])
 
+AC_PATH_PROG(BAZEL, bazel)
+if test -z "$BAZEL"; then
+  AC_MSG_ERROR([Cannot find bazel. Please install bazel.])
+fi
+AC_CONFIG_SUBDIRS([src/tensorflow])
+
 AC_OUTPUT
 
 dnl Taken from https://wiki.debian.org/RpathIssue
